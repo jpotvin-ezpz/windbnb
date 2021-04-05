@@ -1,21 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import Header from './components/Header';
+import App from './App';
 import Footer from './components/Footer';
-import Showcase from './components/Showcase';
 import './styles/index.css';
 
-class Index extends React.Component {
-  render () {
+function Index() {
     return (
       <div>
-        <Header />
-        <Showcase />
+        <App />
         <Footer />
       </div>
     )
   }
-}
 
 ReactDOM.render (
   <Index />,

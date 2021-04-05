@@ -8,11 +8,16 @@
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   > * {
     padding: 2rem;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid black;
+      border-radius: 12px;
+    }
   }
 }
 
 .locations {
-  color: #333333;
+  color: #bdbdbd;
   font-size: 1.4rem;
   border-right: 1px solid #f2f2f2;
 }
@@ -28,5 +33,11 @@
   border: none;
   .material-icons {
     color: #eb5757;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .filter-drawer {
+    margin: 75px auto 25px auto;
   }
 }

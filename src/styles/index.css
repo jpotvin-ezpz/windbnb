@@ -59,10 +59,15 @@ body {
 }
 .filter-drawer > * {
   padding: 2rem;
+  cursor: pointer;
+}
+.filter-drawer > *:hover {
+  border: 1px solid black;
+  border-radius: 12px;
 }
 
 .locations {
-  color: #333333;
+  color: #bdbdbd;
   font-size: 1.4rem;
   border-right: 1px solid #f2f2f2;
 }
@@ -81,19 +86,36 @@ body {
   color: #eb5757;
 }
 
+@media only screen and (max-width: 600px) {
+  .filter-drawer {
+    margin: 75px auto 25px auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .windbnb-logo {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+  }
+}
 body {
   font-family: "Montserrat", sans-serif;
 }
 
 .showcase {
-  margin: 85px 96px;
+  margin: 85px 96px 0 96px;
   font-family: "Montserrat", sans-serif;
 }
 
 .showcase-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin: 0 auto 32px auto;
 }
 
 .showcase-title {
@@ -110,7 +132,8 @@ body {
 .stays-gallery {
   display: grid;
   grid-gap: 34px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(264px, 1fr));
+  place-content: center;
 }
 
 body {
@@ -175,11 +198,44 @@ body {
   color: #333333;
 }
 
+@media only screen and (max-width: 840px) {
+  .stayCard {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  .showcase {
+    margin: 0 auto;
+  }
+
+  .showcase-info {
+    margin: 0 16px 32px 16px;
+  }
+
+  .stays-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    margin: 0 16px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .showcase {
+    margin: 12px;
+  }
+
+  .stays-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .showcase-title {
+    font-size: 1.8rem;
+  }
+}
 .footer {
   font-size: 1.4rem;
   font-weight: 700;
   text-align: center;
-  margin: 26px;
+  margin: 0 auto 26px auto;
   color: #828282;
 }
 

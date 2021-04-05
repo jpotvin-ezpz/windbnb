@@ -63,3 +63,9 @@ $card-title-color: #333333;
   font-size: 1.6rem;
   color: $card-title-color;
 }
+
+@media only screen and (max-width: 840px) {
+  .stayCard {
+    margin: 0;
+  }
+}
