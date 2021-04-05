@@ -1,0 +1,33 @@
+$title-color: #333333;
+$quantity-color: #4f4f4f;
+@use "../base/typography";
+
+.showcase {
+  margin: 85px 96px;
+  font-family: typography.$main-font;
+}
+
+.showcase-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.showcase-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: $title-color;
+}
+
+.stays-quantity {
+  font-size: 1.4rem;
+  color: $quantity-color;
+}
+
+.stays-gallery {
+  display: grid;
+  grid-gap: 34px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@import "./Card.scss";

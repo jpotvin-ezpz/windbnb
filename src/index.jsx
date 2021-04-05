@@ -1,22 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import Card from './components/Card';
-import FilterDrawer from './components/FilterDrawer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import Showcase from './components/Showcase';
+import './styles/index.css';
 
 class Index extends React.Component {
   render () {
     return (
       <div>
-        <Card />
-        <FilterDrawer />
+        <Header />
         <Showcase />
+        <Footer />
       </div>
     )
   }
 }
 
-ReactDOM.render(
+ReactDOM.render (
   <Index />,
-  document.getElementById('root'),
+  document.getElementById("root")
 )

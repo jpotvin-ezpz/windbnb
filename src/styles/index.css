@@ -1,0 +1,186 @@
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  margin: 32px 96px 0 96px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.filter-drawer {
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+}
+.filter-drawer > * {
+  padding: 2rem;
+}
+
+.locations {
+  color: #333333;
+  font-size: 1.4rem;
+  border-right: 1px solid #f2f2f2;
+}
+
+.guests {
+  color: #bdbdbd;
+  font-size: 1.4rem;
+  border-right: 1px solid #f2f2f2;
+}
+
+.search-btn {
+  background: transparent;
+  border: none;
+}
+.search-btn .material-icons {
+  color: #eb5757;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.showcase {
+  margin: 85px 96px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.showcase-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.showcase-title {
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #333333;
+}
+
+.stays-quantity {
+  font-size: 1.4rem;
+  color: #4f4f4f;
+}
+
+.stays-gallery {
+  display: grid;
+  grid-gap: 34px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.stayCard {
+  max-width: 400px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 50px;
+}
+
+.card-photo {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 24px;
+}
+
+.details--wrapper {
+  margin: 15px auto 12px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.host-and-type {
+  display: flex;
+  align-items: center;
+}
+
+.host-status {
+  display: flex;
+  place-items: center;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4f4f4f;
+  border: 1px solid #4f4f4f;
+  border-radius: 12px;
+  margin-right: 10px;
+}
+
+.apt-type {
+  font-size: 1.4rem;
+  color: #828282;
+}
+
+.apt-rating {
+  display: flex;
+  align-items: center;
+  color: #4f4f4f;
+  font-size: 1.4rem;
+}
+.apt-rating .material-icons {
+  color: #eb5757;
+}
+
+.apt-title {
+  font-size: 1.6rem;
+  color: #333333;
+}
+
+.footer {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 26px;
+  color: #828282;
+}
+
+/*# sourceMappingURL=index.css.map */
