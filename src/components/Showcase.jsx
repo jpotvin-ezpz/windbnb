@@ -1,15 +1,19 @@
 import Card from './Card'
 import stays from '../resources/stays.json';
 
-
-
-
-
-
-
 const Showcase = ({location, guests}) => {
-
-  let stayCards = stays.map((stay) => {
+  let maxShowableCards = [];
+  let filteredStays = [];
+  
+  let filteredGuests = stays.filter(stay => stay.maxGuests >= guests)
+  
+  if (!!location) {
+    filteredStays = filteredGuests.filter(stay => stay.city === location)
+  } else {
+    filteredStays = filteredGuests;
+  }
+  
+  let finalStays = filteredStays.map((stay) => {
     return <Card 
         photo={stay.photo}
         superHost={stay.superHost}
@@ -19,21 +23,25 @@ const Showcase = ({location, guests}) => {
         title={stay.title}
         key={stay.photo}
       />
-  });
+});
+
+  for (let i = 0; i < 6 && i < finalStays.length; i += 1) {
+    maxShowableCards.push(finalStays[i])
+  }
   
-  const maxShowableCards = [];
-  for (let i = 0; i < 6 && i < stayCards.length; i += 1) {
-    maxShowableCards.push(stayCards[i])
+  let stayQuantity;
+  if (finalStays.length > 12) {
+    stayQuantity = '12+ stays';
+  } else if (finalStays.length === 1) {
+    stayQuantity = `${finalStays.length} stay`;
+  } else {
+    stayQuantity = `${finalStays.length} stays`;
   }
 
-
-
-  
-
- return (<div className='showcase'>
+  return (<div className='showcase'>
     <div className='showcase-info'>
       <h1 className='showcase-title'>Stays in Finland</h1>
-      <p className='stays-quantity'>12+ stays</p> {/* Make Dynamic */}
+      <p className='stays-quantity'>{stayQuantity}</p> {/* Make Dynamic */}
     </div>
     <div className='stays-gallery'>{maxShowableCards}</div>
   </div>)};

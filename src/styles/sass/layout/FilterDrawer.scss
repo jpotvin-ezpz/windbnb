@@ -6,13 +6,14 @@
   align-items: center;
   border-radius: 16px;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  &:hover {
+    border: 1px solid black;
+    border-radius: 12px;
+  }
   > * {
     padding: 2rem;
     cursor: pointer;
-    &:hover {
-      border: 1px solid black;
-      border-radius: 12px;
-    }
+    width: 100%;
   }
 }
 
@@ -28,6 +29,17 @@
   border-right: 1px solid #f2f2f2;
 }
 
+.locations.active,
+.guests.active {
+  color: #333333;
+}
+
+.search-btn--wrapper {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
 .search-btn {
   background: transparent;
   border: none;
@@ -36,8 +48,251 @@
   }
 }
 
+//FilterDrawer Open
+.outerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.innerModal {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 45vh;
+  background-color: white;
+}
+
+.edit-search-text {
+  display: none;
+}
+
+.filter-drawer.open {
+  margin: 5vh;
+
+  &:hover {
+    border: none;
+    border-radius: 12px;
+  }
+  .location--wrapper,
+  .guests--wrapper {
+    border-right: thin solid #f2f2f2;
+    padding: 5px;
+    &:hover {
+      border: 1px solid black;
+      border-radius: 12px;
+    }
+  }
+  .location-header,
+  .guest-header,
+  .locations,
+  .guests {
+    margin-left: 2rem;
+  }
+
+  .location-header,
+  .guest-header {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.9rem;
+  }
+
+  .locations,
+  .guests {
+    border: none;
+  }
+
+  .search-btn--wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  .search-btn {
+    display: flex;
+    place-items: center;
+    color: white;
+    font-weight: 700;
+    padding: 15px 25px;
+    background: #eb5757;
+    border-radius: 16px;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    .material-icons {
+      color: white;
+    }
+    &:hover {
+      border: 2px outset #eb5757;
+      border-radius: 12px;
+    }
+    &:active {
+      border: 1px inset #eb5757;
+    }
+  }
+}
+
+// Lists with toggled Visibility
+
+.location-list {
+  margin-left: 7vw;
+  > * {
+    &:hover {
+      color: #eb5757;
+      .material-icons {
+        color: #eb5757;
+      }
+    }
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  color: #4f4f4f;
+  font-size: 1.4rem;
+  margin: 36px auto;
+  cursor: pointer;
+
+  .material-icons {
+    color: #4f4f4f;
+    padding-right: 5px;
+  }
+}
+
+.guest-list {
+  position: absolute;
+  left: 50%;
+}
+
+#adult-header {
+  margin-top: 0;
+}
+
+.guest-btn-header {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #333333;
+  margin-top: 46px;
+}
+
+.guest-btn-subheader {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #bdbdbd;
+}
+
+.inc-dec-btns {
+  display: flex;
+  align-items: center;
+  margin: 12px auto;
+}
+
+.cur-count {
+  color: #333333;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 0 1.6rem;
+}
+
+.sub-btn,
+.add-btn {
+  background: transparent;
+  border: thin solid #828282;
+  border-radius: 4px;
+  color: #828282;
+  padding: 2.5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    color: #eb5757;
+    border: thin solid #eb5757;
+  }
+  .material-icons {
+    font-size: 1.75rem;
+  }
+}
+
+// Media Queries
+
 @media only screen and (max-width: 600px) {
+  .innerModal {
+    height: 80vh;
+  }
+
+  .edit-search-text {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .close-menu {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    &:hover {
+      cursor: pointer;
+    }
+    .bar1,
+    .bar2 {
+      height: 3px;
+      width: 25px;
+      margin: 6px 0;
+      background: black;
+      border-radius: 12px;
+    }
+    .bar1 {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .bar2 {
+      transform: rotate(-45deg);
+    }
+  }
+
   .filter-drawer {
-    margin: 75px auto 25px auto;
+    width: 80%;
+  }
+
+  .search-btn--wrapper {
+    padding: 0;
+    width: 60px;
+  }
+
+  .filter-drawer.open {
+    flex-direction: column;
+    margin: 50px 12px auto 12px;
+    .location--wrapper {
+      border-right: none;
+      border-bottom: thin solid #f2f2f2;
+    }
+    .guests--wrapper {
+      border-right: none;
+    }
+    > * {
+      width: 100%;
+    }
+    .search-btn--wrapper {
+      position: absolute;
+      bottom: 26px;
+    }
+  }
+
+  .location-list,
+  .guest-list {
+    margin: 35px 40px;
+  }
+  .guest-list {
+    position: initial;
+  }
+
+  .filter-drawer {
+    margin: 75px 12px 25px 12px;
+    padding: 0;
+    > * {
+      padding: 12px;
+    }
   }
 }

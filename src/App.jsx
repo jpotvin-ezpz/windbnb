@@ -8,21 +8,21 @@ class App extends React.Component {
     super(props);
     this.state = {
       drawerOpen: false,
-      guests: 0,
+      totalGuests: 0,
       location: '',
     }
   }
   render() {
-    let {drawerOpen, guests, location } = this.state
+    let {drawerOpen, totalGuests, location } = this.state
   return (
     <div className='app'>
       <Header
        drawerOpen={drawerOpen}
-       guests={guests}
+       guests={totalGuests}
        location={location}
        />
       <Showcase
-       guests={guests}
+       guests={totalGuests}
        location={location}
        />
     </div>
