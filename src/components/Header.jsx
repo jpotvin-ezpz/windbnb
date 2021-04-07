@@ -3,7 +3,7 @@ import logo from '../logos/logo.svg'
 
 const Header = ({
   drawerOpen, guests, childCount, adultCount, prelimLocation, handleLocationChoice,
-  location, incChildCount, decChildCount, incAdultCount, decAdultCount
+  location, incChildCount, decChildCount, incAdultCount, decAdultCount, handleDrawerOpen, handleDrawerClose
 }) => {
   return ( <div className='header'>
     <img className='windbnb-logo' src={logo} alt='windbnb logo' />
@@ -19,6 +19,8 @@ const Header = ({
        decChildCount={decChildCount}
        incAdultCount={incAdultCount}
        decAdultCount={decAdultCount}
+       handleDrawerOpen={handleDrawerOpen}
+       handleDrawerClose={handleDrawerClose}
        />
   </div> );
 }

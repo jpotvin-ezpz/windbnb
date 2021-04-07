@@ -56,12 +56,14 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
 }
 .innerModal {
   position: absolute;
   top: 0;
   width: 100%;
   height: 45vh;
+  z-index: 1;
   background-color: white;
 }
 
@@ -71,7 +73,6 @@
 
 .filter-drawer.open {
   margin: 5vh;
-
   &:hover {
     border: none;
     border-radius: 12px;
@@ -231,8 +232,10 @@
   }
   .close-menu {
     position: absolute;
-    top: 15px;
-    right: 16px;
+    z-index: 2;
+    padding: 5px;
+    top: 10px;
+    right: 11px;
     &:hover {
       cursor: pointer;
     }
@@ -243,6 +246,7 @@
       margin: 6px 0;
       background: black;
       border-radius: 12px;
+      pointer-events: none;
     }
     .bar1 {
       transform: translateY(9px) rotate(45deg);

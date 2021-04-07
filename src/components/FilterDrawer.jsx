@@ -90,14 +90,14 @@ function Guests({guests}) {
 
 const FilterDrawer = ({
   drawerOpen, location, guests, childCount, adultCount, handleLocationChoice,
-  incChildCount, decChildCount, incAdultCount, decAdultCount, prelimLocation
+  incChildCount, decChildCount, incAdultCount, decAdultCount, prelimLocation, handleDrawerOpen, handleDrawerClose
 }) => {
     const [listShown, setListShown] = useState('locations');
     
     if (drawerOpen) { 
-   return ( <div className='outerModal'> {/* clicking outerModal closes drawer */}
+   return ( <div className='outerModal' onClick={(e) => handleDrawerClose(e)}> {/* clicking outerModal closes drawer */}
       <div className='innerModal'>
-        <div className='close-menu' > {/* onClick drawerClose */}
+        <div className='close-menu' onClick={(e) => handleDrawerClose(e)}> {/* onClick drawerClose */}
           <div className='bar1'></div>
           <div className='bar2'></div>
         </div>
@@ -136,7 +136,7 @@ const FilterDrawer = ({
     </div>
     )} else {
       return ( 
-        <div className='filter-drawer' >{/* onClick drawerOpen */}
+        <div className='filter-drawer' onClick={() => handleDrawerOpen()}>{/* onClick drawerOpen */}
           <Location location={location}/>
           <Guests guests={guests} />
           <div className='search-btn--wrapper'>

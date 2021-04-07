@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      drawerOpen: true,
+      drawerOpen: false,
       totalGuests: 0,
       childCount:0,
       adultCount:0,
@@ -19,6 +19,23 @@ class App extends React.Component {
     this.decChildCount = this.decChildCount.bind(this);
     this.incChildCount = this.incChildCount.bind(this);
     this.handleLocationChoice = this.handleLocationChoice.bind(this);
+    this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+    this.handleDrawerClose = this.handleDrawerClose.bind(this);
+  }
+
+  handleDrawerClose(e) {
+    if (e.target.className === 'outerModal' ||
+        e.target.className==='close-menu') {
+    this.setState({
+      drawerOpen: false,
+    })}
+    return;
+  }
+
+  handleDrawerOpen() {
+    this.setState({
+      drawerOpen: true,
+    })
   }
 
   handleLocationChoice(e) {
@@ -52,7 +69,7 @@ class App extends React.Component {
   }
 
   render() {
-    let {drawerOpen, totalGuests, childCount, adultCount, prelimLocation, location } = this.state
+    let {drawerOpen, totalGuests, childCount, adultCount, prelimLocation, location  } = this.state
   return (
     <div className='app'>
       <Header
@@ -67,6 +84,8 @@ class App extends React.Component {
        decChildCount={this.decChildCount}
        incAdultCount={this.incAdultCount}
        decAdultCount={this.decAdultCount}
+       handleDrawerOpen={this.handleDrawerOpen}
+       handleDrawerClose={this.handleDrawerClose}
        />
       <Showcase
        guests={totalGuests}
