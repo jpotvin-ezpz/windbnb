@@ -1,28 +1,31 @@
 import React, {useState} from 'react';
 
-function ListShowing({listShown, adultCount, childCount}) { //TODO Add adult & childCount
-  if (listShown === 'locations') {
+function ListShowing({
+  listShown, childCount, adultCount, incChildCount, handleLocationChoice,
+  decChildCount, incAdultCount, decAdultCount,
+}) { 
+   if (listShown === 'locations') {
     return (
     <ul className='location-list'>
-      <li className='location' id='Helsinki'>
+      <li className='location' id='Helsinki' onClick={(e) => handleLocationChoice(e)}>
         <span className='material-icons'>
           room
         </span>
         Helsinki, Finland
       </li>
-      <li className='location' id='Turku'>
+      <li className='location' id='Turku' onClick={(e) => handleLocationChoice(e)}>
         <span className='material-icons'>
           room
         </span>
         Turku, Finland
       </li>
-      <li className='location' id='Oulu'>
+      <li className='location' id='Oulu' onClick={(e) => handleLocationChoice(e)}>
         <span className='material-icons'>
           room
         </span>
         Oulu, Finland
       </li>
-      <li className='location' id='Vaasa'>
+      <li className='location' id='Vaasa' onClick={(e) => handleLocationChoice(e)}>
         <span className='material-icons'>
           room
         </span>
@@ -37,11 +40,11 @@ function ListShowing({listShown, adultCount, childCount}) { //TODO Add adult & c
           <h2 className='guest-btn-header' id='adult-header'>Adults</h2>
           <h3 className='guest-btn-subheader'>Ages 13 or above</h3>
           <div className='inc-dec-btns'>
-            <button className='sub-btn'>
+            <button className='sub-btn' onClick={() => decAdultCount()}>
               <span className='material-icons'>remove</span>
             </button>
-            <div className='cur-count'>{adultCount}0</div> {/* TEMP */}
-            <button className='add-btn'>
+            <div className='cur-count'>{adultCount}</div>
+            <button className='add-btn' onClick={() => incAdultCount()}>
             <span className='material-icons'>add</span>
             </button>
           </div>
@@ -50,26 +53,28 @@ function ListShowing({listShown, adultCount, childCount}) { //TODO Add adult & c
           <h2 className='guest-btn-header'>Children</h2>
           <h3 className='guest-btn-subheader'>Ages 2-12</h3>
           <div className='inc-dec-btns'>
-            <button className='sub-btn'>
+            <button className='sub-btn' onClick={() => decChildCount()}>
               <span className='material-icons'>remove</span>
             </button>
             <div className='cur-count'>{childCount}</div>
-            <button className='add-btn'>
+            <button className='add-btn' onClick={() => incChildCount()}>
             <span className='material-icons'>add</span>
             </button>
           </div>
         </div>
-      </div>
-    )
+      </div>    )
   }
 }
 
 
-function Location({location}) {
-  if (location) {
-    return  <div className='locations active'>{location}, Finland</div>
-  } 
+function Location({location, prelimLocation}) {
+  if (prelimLocation) {
+    return  <div className='locations active'>{prelimLocation}, Finland</div>
+  } else if (location) {
+    return <div className='locations active'>{location}, Finland</div>
+  } else {
   return <div className='locations'>Add location</div>
+  }
 }
 
 function Guests({guests}) {
@@ -83,13 +88,16 @@ function Guests({guests}) {
   } 
 } 
 
-const FilterDrawer = ({drawerOpen, location, guests}) => {
+const FilterDrawer = ({
+  drawerOpen, location, guests, childCount, adultCount, handleLocationChoice,
+  incChildCount, decChildCount, incAdultCount, decAdultCount, prelimLocation
+}) => {
     const [listShown, setListShown] = useState('locations');
-
+    
     if (drawerOpen) { 
-   return ( <div className='outerModal'> {/* clicking Outside modal closes drawer*/}
+   return ( <div className='outerModal'> {/* clicking outerModal closes drawer */}
       <div className='innerModal'>
-        <div className='close-menu' > {/* onClick drawerClose*/}
+        <div className='close-menu' > {/* onClick drawerClose */}
           <div className='bar1'></div>
           <div className='bar2'></div>
         </div>
@@ -98,7 +106,7 @@ const FilterDrawer = ({drawerOpen, location, guests}) => {
           <div className='filter-drawer open' >
             <div className='location--wrapper' onClick={() => setListShown('locations')}>
             <h2 className='location-header'>Location</h2>
-            <Location location={location} />
+            <Location location={location} prelimLocation={prelimLocation}/>
             </div>
             <div className='guests--wrapper' onClick={() => setListShown('guests')}>
             <h2 className='guest-header'>Guests</h2>
@@ -113,7 +121,16 @@ const FilterDrawer = ({drawerOpen, location, guests}) => {
               </button>
             </div>
           </div>
-          <ListShowing listShown={listShown}/>
+          <ListShowing 
+            listShown={listShown} 
+            childCount={childCount} 
+            adultCount={adultCount}
+            handleLocationChoice={handleLocationChoice}
+            incChildCount={incChildCount}
+            decChildCount={decChildCount}
+            incAdultCount={incAdultCount}
+            decAdultCount={decAdultCount}
+          />
         </div>
       </div>
     </div>
