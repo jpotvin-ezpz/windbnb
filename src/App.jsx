@@ -21,6 +21,19 @@ class App extends React.Component {
     this.handleLocationChoice = this.handleLocationChoice.bind(this);
     this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
+    this.handleFilterConfirm = this.handleFilterConfirm.bind(this);
+  }
+
+  handleFilterConfirm() {
+    this.setState((prevState) =>{
+      return {
+        drawerOpen: false,
+        totalGuests: prevState.childCount + prevState.adultCount,
+        location: prevState.prelimLocation,
+        prelimLocation: '',
+        childCount: 0,
+        adultCount: 0,
+      }})
   }
 
   handleDrawerClose(e) {
@@ -86,6 +99,7 @@ class App extends React.Component {
        decAdultCount={this.decAdultCount}
        handleDrawerOpen={this.handleDrawerOpen}
        handleDrawerClose={this.handleDrawerClose}
+       handleFilterConfirm={this.handleFilterConfirm}
        />
       <Showcase
        guests={totalGuests}

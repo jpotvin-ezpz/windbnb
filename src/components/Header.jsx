@@ -2,7 +2,7 @@ import FilterDrawer from "./FilterDrawer";
 import logo from '../logos/logo.svg'
 
 const Header = ({
-  drawerOpen, guests, childCount, adultCount, prelimLocation, handleLocationChoice,
+  drawerOpen, guests, childCount, adultCount, prelimLocation, handleLocationChoice, handleFilterConfirm,
   location, incChildCount, decChildCount, incAdultCount, decAdultCount, handleDrawerOpen, handleDrawerClose
 }) => {
   return ( <div className='header'>
@@ -21,6 +21,7 @@ const Header = ({
        decAdultCount={decAdultCount}
        handleDrawerOpen={handleDrawerOpen}
        handleDrawerClose={handleDrawerClose}
+       handleFilterConfirm={handleFilterConfirm}
        />
   </div> );
 }
